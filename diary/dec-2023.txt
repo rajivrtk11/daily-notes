@@ -1,0 +1,109 @@
+// 2/Dec/2023(Sat)
+1. order shoes => done
+2. place the clothes in washing machine => done
+3. solve the dsa question => for google job and test the business remitance  
+   feature.
+4. go for hair cut and beard setting 
+5. 
+Webinar ID       :-  927 0273 5676
+Passcode: 123456123456
+
+16/Dec/2023(Sat)
+1. Bring the fair spiral notebook after dinner.
+
+17/Dec/2023(Sun)
+1. Revise lecture-4, 5, 6 of tree till 12am => pending 5, 6 lecture
+2. Clean the room => done
+3. Finish and test the business remittance and test that for normal flow and for 
+   customer  registration flow. 2pm - 6pm => done
+4. Rest for 6pm - 8pm => done
+5. Complete the lecture-7, 8 of the tree. => pending
+6. Start graph and do its lecture - 1 only for today. => pending
+
+create a table Emp_Details with column EMPID, EMPNAME, BANK_CODE, BRANCH_
+CODE, ACCOUNT_NUMBER, AMOUNT
+
+insert data into Emp_Details where EMPID=1001, EMPNAME='abc', BANK_CODE='991', BRANCH_CODE='7777', ACCOUNT_NUMBER='1090909', AMOUNT=10000
+
+create table Text_data with column SLNO, DATA_C, CREATED_BY_C, 
+CREATED_DATE_DT
+
+I have inserted the data into Emp_Details
+now i have to fetch data and from Emp_details and combine the complete 
+row in this format "1001000000abc 9917777109090910000" and insert into
+table Text_Data where SLNO=1, DATA_C=DATA FETCHED FROM Emp_Details,
+CREATED_BY_C='System' and CREATED_DATE_DT='Sysdate'
+
+Object Oriented Programming, Analysis and Design of Algorithms, Data structure, Database management system, Mathematics-I, II, Computer Networks
+
+1. cred => 60lpa
+2. olx => 55 lpa
+3. monitor => 19k
+
+1. Rajiv is a MERN stack developer, He can adept at crafting full-stack web applications using MongoDB for data storage, Express.js for backend web development, React for creating dynamic user interfaces, and Node.js for server-side scripting. 
+2. His skills encompass frontend and backend development, employing JavaScript (and potentially TypeScript) to build scalable, efficient, and modular applications. 
+3. His work style likely involves agile methodologies, emphasizing collaboration, adaptability, and innovation to create robust, maintainable, and user-centric solutions. 
+4. His strengths lie in his versatility, problem-solving abilities, attention to detail, and resilience in handling challenges within the MERN stack ecosystem.
+
+27/Dec/2023(Wed)
+1. Search for job opening on linkedin and apply here majorly the company that 
+   has higher base and ask dsa and systeme design.
+2. Apply for the job there for first one hour using my laptop.
+
+1/Jan/2023(Mon)
+1. Wake up at 6am
+2. Done vocal exercise and body exercise.
+3. Doing binary search question. 
+4. Work on terrapay project. @10am - @1pm
+5. Take sleep from @1pm - @3pm
+6. Again solve binary search question.
+7. Revise dp question from notes.
+
+2/Jan/2023(Mon)
+
+
+// For now i also want to work like as the bitcs was doing (Take the personal 
+   remote project and apply for remote jobs as well).
+   If i get atleast 5000*80 = 4lacs = 50lacs
+
+Upscaling myself:-
+1. Solving dsa question on leetcode.
+2. Update myself for technology(Mern stack developer only)
+   a) React, Redux, Typescript(Oops), Testing(Jest, Rtl), Next js
+   b) Node, Express, Authentication and security points for front end as well as
+      backend.
+   c) Buy aws server and do deployment on the server handling scaling and
+      handling cost optimization.
+   c) If Interested then sometimes learn Spring boot(not more than this).
+3. Work on the Terrapay project with full dedication.
+
+// Apply for jobs
+1. Daily 1 hour while sleeping @12 - 1 am
+   a) Apply on well found
+   b) Linkedin
+   c) Apply for Google, Microsoft, Amazon, Facebook.
+2. Prepare resume.
+
+// Improve communication skill and networking with the people.
+1. Watch hollywood movies when i feel bored.
+2. Sleep when i feel tired.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

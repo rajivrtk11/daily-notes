@@ -1,0 +1,44 @@
+0. How Uber Drives 40M Reads/Sec with Integrated Cache: https://lnkd.in/dfR3wxQm
+
+1. Why Netflix Integrated a Service Mesh in Their Backend: https://lnkd.in/d3tMQ6Vu
+
+2. Scaling Stripe APIs with Rate Limiting: https://lnkd.in/dmeSZkK6
+
+3. How Uber Computes ETA at Scale: https://lnkd.in/dH4nHqG4
+
+4. How Zoom Supports 300 Million Video Calls/Day: https://lnkd.in/d7i8jmiU
+
+5. How Meta Built Threads: https://lnkd.in/dUcqHx9A
+
+6.  How Pinterest Scaled to 11 Million Users with Only 6 Engineers: https://lnkd.in/dsXbW8YV
+
+7. How Quora Scaled MySQL to 100k+ Queries per Second: https://lnkd.in/dhMEeXdS
+
+8. How Canva Supports 135 Million Monthly Simultaneous Users: https://lnkd.in/duSPasJX
+
+9. How LinkedIn Scales to 5 Million Profiles Reads / s: https://lnkd.in/dfiFkt_z
+
+10. How Uber Finds Nearby Drivers at 1M Requests per Second: https://lnkd.in/dvnsUbbk
+
+11. How Instagram Scaled to 14M Users with Only 3 Engineers: https://lnkd.in/dbfHWn9Z
+
+12. Prime Video: Amazon's Secret to Streaming Video at Scale: https://lnkd.in/dm49aVhP
+
+
+Frontend Engineering:
+
+13. Re-Architecturing Airbnb's Frontend: https://lnkd.in/dh9JxbJE
+
+14. Making Instagram Faster (3 parts series): https://lnkd.in/dB7HV6aR
+
+15. The Best App to Slice Through Front-end Interviews: https://lnkd.in/dV7PHkVc
+
+16. How to Design Facebook's News Feed: https://lnkd.in/dGRG3Mp2
+
+17. How YouTube Improved Video Performance: https://lnkd.in/d2ezaACw
+
+18. Shopping for Speed on eBay: https://lnkd.in/d46w6xfa
+
+19. How to Design an Autocomplete System: https://lnkd.in/d2tS83he
+
+20. How Twitter Used Redux: https://lnkd.in/d7Uj33Yq

@@ -1,0 +1,39 @@
+1. artiles =>
+   a) create article, read and update and delete articles
+   b) article listing, filtering by criteria
+   c) comments section and nested comment for the user
+
+2. products =
+   a) javascript => 
+      1. interview question
+      2. js for beginner
+      3. js for advance
+      4. different component like carousal and other using vanilla js
+      5. designing other system using pure js
+   b) react
+      1. interview question
+      2. react for beginner
+      3. react for advance
+      4. different component like carousal and other using react lifecycles method
+      5. designing other system using react
+      6. make the application compatible across all the devices(desktop, tablet, mobile)
+   c) node
+   	  1. creating rest api's
+   	     a) loging, monitoring, and performacne of api
+   	  2. creating graphql api
+   	  3. microservices architecture
+   	  4. socket implementation
+   	  4. messagin queue rabbit mq, kafka.
+   	  5. containerization using docker.
+   	  6. security of the application.
+   	  7. login and authentication using different methods
+   d) nest
+      1. make the application using next
+
+3. practice section for => leetcode like only front
+   a) question listing to practice front end question
+   b) write the test cases for the front end question to give the points
+   c) integrating the text editor in application
+   d) discussion tab for each question => like leetcode.
+   e) chat with us for product related query => 
+4. login and signup for user to save information.

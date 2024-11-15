@@ -1,0 +1,93 @@
+NODE_ENV=development
+PORT=4000
+DATABASE = mongodb+srv://royankit1602:Qw1Dt6Tk0Kcq5muS@goal-racker.r88wkaz.mongodb.net/?retryWrites=true&w=majority&appName=goal-racker
+
+JWT_SECRET=my-ultra-secure-and-ultra-long-secret-ar11g746
+JWT_EXPIRES_IN=90d
+JWT_COOKIE_EXPIRES_IN=90
+
+app.habitify.me
+
+1. Most Popular Habits
+   a) Meditate
+   b) Set A To-Do List
+   c) Drink Water
+   d) Read Books
+   e) Running
+2. Stay Fit With Exercises
+   a) Quick Strech
+   b) Hit The Gym
+   c) Swimming
+   d) Core Training
+   e) Practice Yoga
+   f) HIIT Cardio
+   g) Cycling
+3. Stay Healthy
+   a) Go For A Walk
+   b) Get Good Sleep
+   c) Take A Cold Shower
+   d) Take Power Naps
+   e) Wash Your Hands
+   f) Apply Sunscreen
+   g) Take A Deep Breath
+   h) Wear A Mask
+4. Increase Your Productivity
+   a) Read An Article
+   b) Review Your Day
+   c) Clean Up Emails
+   d) Write In Journal
+5. Nurture Your Relationships
+   a) Call My Parents
+   b) Spend Time With Family
+   c) Pay A Compliment
+   d) Meet A Friend
+   e) Say Thank You
+   f) Spend Time With Yourself
+6. Watch Your Diet
+   a) Take Vitamins
+   b) Eat Fruits
+   c) Limit Sugar
+   d) Take Calories
+   f) Limit Caffeine
+7. Learn Something New
+   a) Learn Spanish
+   b) Learn French
+   c) Learn German
+   d) Learn Japanese
+   e) Practice Coding
+   f) Try A New Recipe
+8. Live A Passion
+   a) Play the Guitar
+   b) Take A Photo
+   c) Paint & Draw
+   d) Just Dance
+9. More Healthy Habits
+   a) Play Badminton
+   b) Practice For Baseball
+   c) Go Bowling
+   d) Practice Boxing
+   e) Go Fishing
+   f) Play Golf
+   g) Go Climbing
+   h) Count Your Steps
+   i) Jump Rope!
+   j) Treadmill Running
+   k) Lift Weight
+   l) Climb Those Stairs
+   m) Stay In Movements
+   n) Exercise Time
+   o) Burn Some Calories
+   p) Go Kayaking
+   q) Go Rowing
+   r) Take Vitamin A
+   s) Take Vitamin C
+   t) Take  Vitamin B6
+   u) Take Vitamin E 
+   v) Niacin Intake
+   w) Biotin Intake
+   x) Calcium Intake
+   y) Sodium Intake
+   z) Fat Intake
+   aa) Protein Intake
+   ab) Cholesterol Intake
+

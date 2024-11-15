@@ -1,0 +1,35 @@
+Services in kubernetes:
+   Services provide networking between pods.
+
+Types of services
+ a) Cluster ip => Sets up an easly-to-remember URL to access a pod. Only exposes pods in
+    the cluster. 
+ b) Node port => Makes a pod accessible from outside cluster. Usually only used for dev 
+    purpose.
+ c) Load balancer => Makes a pod accessible from outside the cluster. This is the right way 
+    to expose a pod to the outside world.
+ d) External name => Redirect an in-cluster request cname url
+
+
+ // 14/Feb/2024(Wed)
+ 1. Complete the kubernetes course completely. (2hrs)
+ 2. Apply for jobs (1hrs).
+ 3. Complete terrapay work.
+
+ # Step-1: Install Apache2
+ yes | sudo apt update
+ yes | sudo apt install apache2
+
+ # Step-2: Install docker
+ sudo apt-get update
+ sudo apt-get install ca-certificates curl gnupg
+ sudo install -m 0755 -d /etc/apt/keyrings
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor
+ -o /etc/apt/keyrings/docker.gpg
+ sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+ "bin": "server.js",
+ "pkg": {
+   "assets": [".next/**/*"],
+   "scripts": [".next/dist/**/*.js"]
+ }

@@ -1,0 +1,14 @@
+Dear Sir/Mam,
+
+I am writing to express my interest in the Fullstack Engineer position at your organisation. As a Fullstack developer with five years of experience, I bring a strong skill set in both front-end and back-end development, encompassing the entire development lifecycle from development and testing to deployment.
+
+My proficiency in Full-Stack Web Development (Node/Redux/React) has allowed me to create responsive and user-friendly applications. I take pride in writing clean, scalable code that adheres to industry standards.
+
+Beyond technical skills, I excel in cross-team communication, fostering collaboration for successful project outcomes.
+
+Enclosed is my resume for your review. I am excited about the opportunity to discuss how my experience aligns with the needs of Human made.
+
+Thank you for considering my application.
+
+Sincerely,
+Rajiv singh

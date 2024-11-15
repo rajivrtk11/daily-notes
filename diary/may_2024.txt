@@ -1,0 +1,48 @@
+// 21/May/2024(Tue)
+1. Revise the oops concepts lld-4 and hld @10pm - @11pm => done
+2. Do the implementation of dynamic input field for person till all the fields are added.
+
+
+// 22/May/2024(Wed)
+1. Attend the class @8pm-@10pm
+2. Revise the oops concepts lld-5,6 and hld @10pm - @11pm 
+3. Do the implementation of dynamic input field for person till all the fields are added.
+
+// 29/May/2024(Wed)
+1. Revise lect-2,3 of hld @11:00-@12:00am also revise the db Optimization techniques.
+2. Revise last two lect of lld before class @6:30 - @7:30pm
+3. sleep after that.
+4. 
+
+// 30/May/2024(Thu)
+1. Revise lect-4,5,6 of hld @11:00-@12:00am also revise the db Optimization techniques.
+2. Revise last two lect of lld before class @6:30 - @7:30pm
+3. Do the new implementation for bank with provider code and new validations.
+4. 
+
+Dear Sir/Mam,
+
+I am writing to express my interest in the Fullstack Engineer position at your organisation. As a Fullstack developer with two years of experience, I bring a strong skill set in both front-end and back-end development, encompassing the entire development lifecycle from development and testing to deployment.
+
+My proficiency in Full-Stack Web Development (Node/Redux/React) has allowed me to create responsive and user-friendly applications. I take pride in writing clean, scalable code that adheres to industry standards.
+
+Beyond technical skills, I excel in cross-team communication, fostering collaboration for successful project outcomes.
+
+Enclosed is my resume for your review. I am excited about the opportunity to discuss how my experience aligns with the needs of at your organisation.
+
+Thank you for considering my application.
+
+Sincerely,
+Name:- Rajiv singh,
+Location:- Bangalore(KA).
+Mail Id:- rajivrtk11@gmail.com
+
+
+coca cola => 1987 => 16billion
+1997 => 154 billion $
+15% cagr
+
+48 billion dollar 
+getting in 16 billion dollar => yes i will
+
+lower price + growing company => buying 

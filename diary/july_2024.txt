@@ -1,0 +1,27 @@
+29/July/2024()
+1. How to prepare new system design problems. How do you approach. Or what resources you follows.
+2. 
+elevator design
+linkedin => social media
+book my show => seat allocation
+splitwise
+ecommerce site => 
+
+{
+    "username": "exampleuser",
+    "email": "exampleuser@gmail.com",
+    "enabled": true,
+    emailVerified": false,
+    "firstName": "John",
+    "lastName": "Doe",
+    "credentials": [
+        {
+            "type": "password",
+            "value": "P@ssw0rd",
+            "temporary": false
+        }
+    ],
+    "attribute": {
+        "attribute_key": "attribute_value"
+    }
+}

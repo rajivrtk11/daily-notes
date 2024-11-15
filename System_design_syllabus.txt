@@ -1,0 +1,152 @@
+ ## Functional
+1. Database
+   a) Sql(Relational)
+   b) No SQL
+   c) In-memory DB
+   d) Sharding
+   e) Replication
+
+2. Microservice vs Monolithic
+3. API Design
+4. Data Partitioning
+   a) Consistent hasing.
+
+5. Caching
+   a) Caching strategies.
+   b) Famouse caching tools like Redis / Memcached.
+
+6. Rate Limiting
+   a) Throttling user and services.
+   b) Preventing DDOS attacks.
+
+7. Message queues
+   a) Message brokers such as Kafka, Rabbit-MQ for async processing
+8. Monitoring and Logging
+   a) System health
+   b) Metrics
+   c) Alerting
+
+9. Security
+   a) O-Auth
+   b) Encryption
+
+10. Connection protocols
+   a) TCP
+   b) UDP
+   c) HTTPS
+   d) Web sockets
+
+## Non Functional
+1. Scalability
+2. Consistency vs Availibility
+   a) CAP theorem
+
+3. Concurrency
+   a) Concurrent processing
+   b) Multithreading
+   c) Synchronisation
+
+4. Reliablity
+   a) Data replication
+   b) Single point of failure
+   c) System falover
+5. Cost Optimization
+
+## Question asked
+1. User facing products
+   a) Social Media platforms
+      i) Twitter / facebook / instagram
+      ii) Posting updates.
+      iii) Following users.
+      iv) timeline generation
+
+   b) Url Shortner
+      i) bitly
+      ii) generate short urls
+      iii) Handling redirects.
+      iv) Analytics
+
+   c) Video streaming service
+      i) netflix/ amazon prime/ hotstar/ 
+      ii) video uploads
+      iii) video views
+      iv) Live - streaming
+      v) Recommendation engine
+
+   d) E-commerce website
+      i) amazon / flipkart
+      ii) Products search
+      iii) User authentication
+      iv) online payment processing.
+      v) flash sale.
+   e) Desing a web crawler
+      i) Url queue management.
+      ii) Html parsing
+      iii) Data storage
+   f) Design search engine
+      i) Crawling
+      ii) Indexing
+      iii) Query serving
+   g) Chat application
+      i) Whats app / Facebook messaenger
+      ii) Real-time messaging
+      iii) Online indicator
+      iv) group chats
+   h) Ride sharing service
+      i) Ola / uber
+      ii) Ride matching
+      iii) Tracking
+      iv) Fare estimation
+   i) Gaming platforms
+      i) Handling multiple players
+      ii) Real-time updates
+      iii) Game state management
+   j) Email service
+      i) sending mails
+      ii) Receiving mails
+      iii) Storage of mails
+      iv) Searching mails
+   k) Reservation / Booking system
+      i) Reliablity
+2. Technical products
+   a) Distributed file storage service
+      i) s3
+      ii) Data sharding
+      iii) Replication
+      iv) Fault tollerance
+   b) Rate limiter
+   c) job scheduler
+      i) Prioritize and distribute jobs to workers
+   d) Real time analytics dashboard
+      i) collection of data
+      ii) processing of data
+      iii) Visualization of data
+   e) Logging service
+      i) High throughput
+      ii) Low latency
+      iii) Easily Searchable
+
+-----------------------------------------------------------------------
+1. Database
+2. Caching
+3. Messaging queue => kafka, pubsub
+4. Multiple server, and multiple db
+5. Load balancer
+6.  
+
+1. Project makes a very good impression in the interviews
+2. Be thorough wit ht 3 wh
+   a) What(Objective of the project)
+   b) Why (Problems that you are solving)
+   c) How (Methodology)
+      i) Tech-stack(Alternatives that you could go for)
+      ii) Optimality of the thing that you have done for project
+3. Be ready with 2-3 min of speech consisting of above wh questions for
+   each project.
+
+can we say this
+partition tolerance = 1/consistency
+partition tolerance = avalability
+
+Distributed transaction
+

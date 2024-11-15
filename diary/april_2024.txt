@@ -1,0 +1,91 @@
+// 01/April/2024(Mon)
+msg3,msg2, msg1
+ordering, cart, billing
+
+// 05/April/2024(Fri)
+1. Why do we need to make the packages every where in java, inside that we make the
+   class.
+2. 
+
+
+// autopilot project setup
+If docker is not to set up for front end
+1. we can add the certificate and make it https locally to hit the hosted server dev staging or production
+
+But is it feasible for backend to run without docker ?
+2. 
+
+
+// 25/April/2024(Wed)
+1. Wake up at 9 am
+2. Fresh do breakfast @9:00-@9:30
+3. Revise js basics question then move to advance @9:30 - @10:45 ====================>
+4. Attend meeting @11am - @12pm
+5. Check security point of react application =============================>
+6. Revise react from doc @12pm - @1pm ===================>
+7. Take rest @1pm - @2pm
+8. prepare react question => ==========================
+9. Focus mostly on js
+10. Go through resume and prepare poject, challenges etc @4:30pm - @5:30pm
+
+// Js preparation 
+1. this in javascript 
+2. constructor, prototype chaining, prototypal inheritance
+3. functional inheritance and class inheritance
+4. polyfills in Js
+5. call, bind, apply
+6. currying, closure, partial application,
+7. execution of sync vs async code => event loop
+8. deep equality check, deep cloning of Array and object, deep find in object.
+9. throatle and debounce 
+10. deflatten an object
+11. write function which executes function in sequence and parallel
+12. promise all methods => all, allSettled, race, any. => pollyfill
+13. Map => obj vs map, Set and its methods
+14. Array and object usefull method
+15. Iterator generator similar promises => redux saga does this
+16. 
+
+
+React
+const obj = {
+   a: 1,
+   b: {
+      c: 1,
+      d: {
+         e: 1
+      }
+   }
+}
+
+clonedObj(obj) {a: 1, b: {c: 1}}
+ |
+ |
+clonedObj(b) {c: 1, d: }
+ |
+ |
+clonedObj(d) {e: 1}
+
+React Question:
+1. What is JSX?: Explain JSX and its role in React development.
+2. What are props in React?: Explain what props are and how they are used to pass data between components.
+3. 
+
+by asking him question and realizing him.
+
+1. Is node single threaded 
+2. what are the rules for hooks
+3. throught process for choosing the dependency
+4. count the freq for duplicate element
+5. merge two array and find the diff between min and max element.
+6. useEffect 
+7. scss vs styled components
+8. how you resolve the Technical conflicts 
+9. How do you resolve the production bugs.
+10. if you are put on legecy project and how would to understand that.
+11. 
+
+1. study data type => primitive and non primitive.
+2. hoisting
+3. closure 
+4. 

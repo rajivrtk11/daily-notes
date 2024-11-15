@@ -1,0 +1,37 @@
+
+// 16/March/2024(Sat)
+1. Do the practical implementation of data base scaling on aws
+   a) Horizontal scaling
+   b) Vertical scaling
+   c) Replication all technique => with drawback
+   d) Replication method => how to replicate the data to different db.
+   e) Sharding and partitioning => implement on aws.
+2. See the full implementation of harkirat for application and deploy on my server make complete ci/cd.
+3. Have bath at 12:00pm
+4. Go for lunch at 12:30pm
+5. Do the development task in morning @9am - @6:30pm
+6. Sleep @6:30 - @7:30pm
+8. Do dsa from @9:00pm - @11:30pm 
+9. Take break @11:30pm - @12:00 pm
+10. Search for the job where can be applied. => 12am - @1am
+12. Sleep @2:00am
+
+// 22/March/2024(Sun)
+1. Go through the problem solving session-1 of system desing of abhishek. => @9am - @12am
+2. Take bath and do some cleaning of room and bathroom @12pm - @1pm
+3. Do luch and have some rest @1pm - @2pm
+4. Go through the recording of autopilot project and its detail @3pm - @6pm => doing
+   i) Go through the document that chudamani shared
+   ii) Go through the recording once again and note down the detailings
+   iii) Be comfortable with the all team members of the project and do the work calmly and efficiently so that they could have strong believe on you and they assign you some other project as well 
+5. sleep @6pm - @8pm
+6. check the hiring trend of atlassian for last 6 months on linkedin @9pm - @10pm
+   i) Which role frontend/backend they are hirign the most.
+   ii) Check the list of question that the are asking for corresponding role.
+6. Solve the today contest of leetcode. / go through the problem solving session 2 of system design of Abhishek kumar google manager.
+
+// 31/March/2024(Sun)
+1. Make the design document of all the api for habit tracker application => @9:30 - @10am
+2. Either connect with ankit or start making the application ui using firebase. => @10:30 - @12am
+3. Take break and sleep @12pm - @1 pm
+4. 

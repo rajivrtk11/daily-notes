@@ -1,0 +1,45 @@
+// Write a program which returns employee count for a given input. 
+// Employee are identified from their ids. Ids can be non unique across organisation.
+// Eg.Input: [{id:1, company: "Tekion"}, {id:2, company: "Google"}, {id:1, company: "Amazon"}, {id: 1, company:"Tekion"}, {id:2, company:"Amazon"}, {id:2, company: "Tekion"}]
+// Output : {Tekion: 2, Google: 1, Amazon: 2}
+
+// const arr = [{id:1, company: "Tekion"}, {id:2, company: "Google"}, {id:1, company: "Amazon"}, {id: 1, company:"Tekion"}, {id:2, company:"Amazon"}, {id:2, company: "Tekion"}, {id: 1, company: "23"}, {id: 12, company: "3"}, {id: 1, company: "@23"}, {id: 12, company: "@@3"}]
+
+// const isPresent = [];
+
+// const ans = {}
+// for(let emp of arr) {
+//     const key = emp.id+ '@' +emp.company;
+//     if(!isPresent.includes(key)) {
+//         isPresent.push(key);
+//         if(!ans[emp.company]) {
+//             ans[emp.company] = 1;
+//         }
+//         else ans[emp.company]++;
+//     }
+// }
+// console.log(ans);
+
+// const obj = {
+//     name: 'rajiv',
+//     getName: () => {
+//         console.log('Name is ', this.name);
+//     }
+// }
+
+// const getName = obj.getName();
+// getName()
+
+const getName = new Promise((resolve, reject) => {
+    resolve('Line 2');
+})
+console.log('Line 1');
+setTimeout(() => {
+    console.log('Line 2');
+}, 0);
+getName.then(res => console.log(res));
+console.log('Line 3');
+while(1) {
+    
+}
+

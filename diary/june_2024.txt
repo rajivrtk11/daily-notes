@@ -1,0 +1,79 @@
+// 25/June/2024(Tue)
+1. Revise and implement the k8s
+2. 
+
+1. Basic Syntax and Operators
+    a) Understanding of variables (let, const, var)
+    b) Data types (string, number, boolean, object, array, null, undefined, symbol)
+    c) Basic operators (arithmetic, comparison, logical)
+    d) Template literals
+2. Functions
+    a) Function declaration and expression
+    b) Arrow functions
+    c) IIFE (Immediately Invoked Function Expressions)
+    d) Higher-order functions
+    e) Callback functions
+    f) Closures
+3. Scope and Hoisting
+    a) Function scope, block scope
+    b) Lexical scope
+    c) Hoisting of variables and functions
+4. Asynchronous JavaScript
+    a) Callbacks
+    b) Promises
+    c) async/await
+    d) Event loop and concurrency model
+    e) setTimeout, setInterval
+5. Objects and Arrays
+    a) Object creation and manipulation
+    b) Prototypes and inheritance
+    c) Array methods (map, filter, reduce, forEach, etc.)
+    d) Destructuring assignment
+6. ES6 and Beyond
+    a) Let, const vs. var
+    b) Arrow functions
+    c) Default parameters
+    d) Rest and spread operators
+    e) Template literals
+    f) Destructuring
+    g) Modules (import/export)
+7. Event Handling
+    a) Event propagation (bubbling and capturing)
+    b) Event delegation
+    c) Adding and removing event listeners
+8. DOM Manipulation
+    a) Selecting elements (querySelector, getElementById, etc.)
+    b) Modifying elements (innerHTML, textContent, etc.)
+    c) Creating and removing elements
+    d) Handling attributes and styles
+9. Error Handling
+    a) try/catch/finally
+    b) Custom errors
+    c) Error objects
+10. Closures and Lexical Environment
+    a) Understanding closures
+    b) Use cases of closures
+11. Prototype and Inheritance
+    a) Prototype chain
+    b) Classical vs. prototypal inheritance
+    c) Object.create
+12. This Keyword
+    a) How this is determined in different contexts (global, function, method, arrow function)
+    b) call, apply, and bind
+13. Modules
+    a) Importing and exporting modules
+    b) Understanding module scope
+14. New Features in ES6 and Beyond
+    a) Understanding and using new JavaScript features (e.g., optional chaining, nullish coalescing)
+15. Web APIs
+    a) Fetch API
+    b) LocalStorage and SessionStorage
+    c) History API
+16. Data Structures
+    a) Understanding of basic data structures (stack, queue, linked list, tree, graph)
+17. Algorithms
+    a) Basic algorithms (sorting, searching)
+    b) Understanding time and space complexity
+
+1001 leetcode
+
