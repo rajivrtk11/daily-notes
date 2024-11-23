@@ -107,3 +107,136 @@ Spring Boot prepares the `ApplicationContext`:
 ---
 
 Understanding this flow is critical for diagnosing startup issues and customizing the application lifecycle in Spring Boot.
+
+### **2. Order of execution of main, commandline runner, pre and post processor**
+The execution order in a Spring Boot application is determined by the lifecycle of the Spring ApplicationContext and various hooks. Here's the order of execution for the **main method**, **CommandLineRunner**, **BeanPostProcessor**, and **BeanFactoryPostProcessor**:
+
+---
+
+### **Execution Order**
+1. **`main` Method**: 
+   - The entry point of the Spring Boot application.
+   - Starts the `SpringApplication.run()` process, initializing the Spring container.
+
+2. **`BeanFactoryPostProcessor`**:
+   - Executes before any bean initialization.
+   - Used to modify the **bean definitions** in the `BeanFactory` (e.g., adding or changing bean properties).
+   - Executes after the Spring container has been initialized but before any bean instances are created.
+
+3. **`BeanPostProcessor` (Pre-Initialization Phase)**:
+   - Executes after a bean is instantiated but before its properties are set (i.e., before the `@PostConstruct` method or `afterPropertiesSet()` are called).
+
+4. **Initialization Methods**:
+   - **`@PostConstruct` Methods**:
+     - Executed after the bean’s properties are set.
+     - These are lifecycle hooks for beans managed by the Spring container.
+   - **`InitializingBean.afterPropertiesSet()`**:
+     - Executes if the bean implements the `InitializingBean` interface.
+
+5. **`BeanPostProcessor` (Post-Initialization Phase)**:
+   - Executes after a bean's initialization is complete (i.e., after `@PostConstruct` or `afterPropertiesSet()`).
+   - Often used for proxying or wrapping beans.
+
+6. **`CommandLineRunner`**:
+   - Executes after the Spring ApplicationContext has been fully initialized and the application is ready to run.
+   - The `run()` method in `CommandLineRunner` is called with any command-line arguments passed to the application.
+
+---
+
+### **Example Code**
+Here’s an example demonstrating the execution order:
+
+```java
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+
+// Main Application Class
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        System.out.println("1. main() method execution");
+        SpringApplication.run(Application.class, args);
+    }
+}
+
+// BeanFactoryPostProcessor
+@Component
+class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) {
+        System.out.println("2. BeanFactoryPostProcessor execution");
+    }
+}
+
+// BeanPostProcessor
+@Component
+class MyBeanPostProcessor implements BeanPostProcessor {
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) {
+        System.out.println("3. BeanPostProcessor - Before Initialization: " + beanName);
+        return bean;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) {
+        System.out.println("4. BeanPostProcessor - After Initialization: " + beanName);
+        return bean;
+    }
+}
+
+// Bean with PostConstruct
+@Component
+class MyBean {
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("5. @PostConstruct method execution");
+    }
+}
+
+// CommandLineRunner
+@Component
+class MyCommandLineRunner implements CommandLineRunner {
+    @Override
+    public void run(String... args) {
+        System.out.println("6. CommandLineRunner execution");
+    }
+}
+```
+
+---
+
+### **Expected Output**
+```
+1. main() method execution
+2. BeanFactoryPostProcessor execution
+3. BeanPostProcessor - Before Initialization: myBean
+5. @PostConstruct method execution
+4. BeanPostProcessor - After Initialization: myBean
+6. CommandLineRunner execution
+```
+
+---
+
+### **Alternative Ways to Customize Order**
+1. **Using `@Order` or `Ordered`**:
+   - You can control the execution order of multiple `CommandLineRunner` beans:
+     ```java
+     @Component
+     @Order(1)
+     public class FirstRunner implements CommandLineRunner { ... }
+     ```
+
+2. **Using `DependsOn`**:
+   - Specify dependencies between beans to ensure certain beans are initialized earlier:
+     ```java
+     @Component
+     @DependsOn("anotherBean")
+     public class MyBean { ... }
+     ```
+
+3. **Customizing BeanPostProcessor Execution**:
+   - Implementing `PriorityOrdered` interface in a `BeanPostProcessor` allows fine-grained control over execution order.
