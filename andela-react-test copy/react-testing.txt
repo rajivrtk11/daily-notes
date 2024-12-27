@@ -1,0 +1,174 @@
+1. React Testing Library differs from Enzyme in that is helps you test implementation details to ensure the internals of the component behave exactly as they should.
+a) true
+b) false
+
+2. screen queries are generally prefferd over render queries in RTL.
+a) true
+b) false
+
+3. It's important to add cleanup() to an afterEach block since RTL doesn't do this automatically in a typcial testing setup.
+a) true
+b) false
+
+4. The RTL  philosophy is to not test implementation detaisl. One drawback to this is that 100% code coverage is typically impossible.
+a) true
+b) false
+
+5. When testing custom hooks directly, which rendering call would help eliminate the necessity of a component wrapper?
+
+6. Choose the selection ordering from tmost to least preferred, with most preferred, with msot preferred towards(left) and leasdt preferred towards the end(right) of the list.
+a) aria role, test id, text
+b) aria role, text, test id
+c) test id, aria role, text
+d) test id, text, aria role
+e) text, aria role, test id
+f) text, test id, aria role
+
+7. Which matchers aren't part of the base React Testing Library?
+a) .toBeDisabled()
+b) .toBeInTheDocument()
+c) .toHaveTextContent()
+d) .toMatchSnapshot()
+
+8. Select the methods which are asynchronous
+choose all correct answers below
+a) findBy
+b) getBy
+c) queryBy
+d) waitFor
+
+9. If you use a getBy method, no expect assertion is strictly necessary.
+a) true
+b) false
+
+10. If you want to assert that an element does not exist in the document, queryBy is the preferred selection method.
+a) true
+b) false
+
+11. If you use getByTestId and there is multiple elements matched, the first one is returned.
+a) true
+b) false
+
+12. A good use case for the baseElement option for render is testing...
+a) animation effects
+b) deeply-nested component trees
+c) render props
+d) portals
+
+13. Which render method would be most likely to be useful to check for memory leaks?
+a) asFragment
+b) cleanup
+c) container
+d) unmount
+
+14. The rendered container property is the typical way to run queries and traverse the DOM tree.
+a) true
+b) false
+
+15. Mocking useState isn't a good idea. This is an implementation detail and isn't public from outside the component.
+a) true
+b) false
+
+16. React Testing Library is strictly for component unit testing. Integration tests aren't supported
+a) true
+b) false
+
+17. Generally querySelector, querySelectorAll, getElementById and similar browser DOM methods won't be used much in RTL.
+a) true
+b) false
+
+18. If you want to run queries inside a component's children, which RTL render return method is the best choice ?
+a) children
+b) container
+c) inside
+d) within
+
+19. Consider the following component.
+render(<input type="text" name="userName" />);
+
+Will the following selection succeed?
+screen.getByRole("textbox", {name: "userName"});
+a) yes
+b) no
+
+20. Consider the following component.
+render(<h1>hello world</h1>);
+Will the following selection succeed?
+screen.getByText("hello");
+a) yes
+b) no
+
+21. Consider the following component:
+render(<h1>  hello    world </h1>);
+Will the following selection succeed?
+screen.getByText("hello world");
+a) yes
+b) no
+
+22. Does the following test use React Testing Library?
+describe('Output element', () => {
+    it('should render an element with class name "output"', () => {
+        const calc = mount(<Calculator />);
+        expect(calc.find('.output').exists()).toBe(true);
+    });
+});
+a) true
+b) false
+
+23. Is testInstance.findAllByProps(props) part of the React Testing Library API?
+a) yes
+b) no
+
+24. queryAllBy returns an empty array when no elements are located.
+a) true
+b) false
+
+25. To trigger an event on an element, you'd use...
+a) click 
+b) fireEvent
+c) simulate
+d) trigger
+
+26. To issue trusted events, you can use the user-event extension.
+a) true
+b) false
+
+27. If you have a test that contains an asynchronous RTL call like waitFor or findBy, but no fireEvent calls, which hook among the options listed is most likely to be present in the component /
+a) useCallback
+b) useContext
+c) useEffect
+d) useMemo
+
+1. True.
+2. True.
+3. True.
+4. False.
+5. renderHook.
+6. f) text, test id, aria role.
+7. d) .toMatchSnapshot().
+8. a) findBy, d) waitFor.
+9. False.
+10. True.
+11. True.
+12. d) portals.
+13. d) unmount.
+14. True.
+15. True.
+16. False.
+17. True.
+18. d) within.
+19. a) yes.
+20. a) yes.
+21. a) yes.
+22. b) false.
+23. b) no.
+24. False.
+25. b) fireEvent.
+26. True.
+27. c) useEffect.
+
+
+1. Project setup
+2. Common components.
+3. 
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

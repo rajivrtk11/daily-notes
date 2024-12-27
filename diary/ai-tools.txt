@@ -1,0 +1,12 @@
+1. Research on any topic => Perplexity.com
+2. gamma.app => Power point presentation
+3. Suno.com => Music composition
+4. archive.ph/web.archive.org => to see blocked content
+5. sci-hub.ru => to see research papers
+6. merlin chrome extension => to summarize the content/video
+7. anysummary.app => feed pdf/book and ask question
+8. libgen.is => download any book pdf
+9. app.yoodli.ai 
+10. gemini.com => for coding
+11. blackbox.ai => code debugging
+12. claude.ai => for excel file data analysis

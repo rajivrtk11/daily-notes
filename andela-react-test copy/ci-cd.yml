@@ -1,0 +1,220 @@
+variables:
+  REGISTRY_URL: "registry-autopilots.terrapay.com"
+  IMAGE_NAME: "pilot-testing-web"
+  TAG: $CI_COMMIT_TAG
+
+services:
+  - name: docker:dind
+    command: ["--insecure-registry=registry-autopilots.terrapay.com"]
+
+stages:
+  - lint
+  - test
+  - build
+  - deploy
+  - trigger
+  - release
+
+lint:
+  stage: lint
+  tags:
+  - shell_pilot
+  before_script:
+    - npm install
+  script:
+    - npm run lint
+  rules:
+    - if: '$ENV_TAG == "test"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+
+unit-test:
+  stage: test
+  tags:
+  - shell_pilot
+  before_script:
+    - npm install
+  script:
+    - npm run test:coverage
+  coverage: '/All files\s+\|\s+\d+\.\d+\s+\|\s+\d+\.\d+\s+\|\s+\d+\.\d+\s+\|\s+(\d+\.\d+)\s+.*/'
+  artifacts:
+    paths:
+      - coverage/
+    when: always
+    reports:
+      junit:
+        - junit.xml
+  rules:
+    - if: '$ENV_TAG == "test"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+
+release_job:
+  stage: release
+  image: node:18-alpine
+  needs:
+    - sonarQube
+  variables:
+    GIT_STRATEGY: clone
+  before_script:
+    - if [ -z "$RELEASE_VERSION" ]; then exit 0; fi
+    - apk update && apk add git git-flow vim
+  script:
+    - git config --global user.email "<>"
+    - git config --global user.name "ReleaseBot"
+    - git config --global core.editor "vim"
+    - git fetch
+    - git checkout develop
+    - git pull
+    - git flow init -f -d
+    - git flow release start $RELEASE_VERSION
+    - npm version $RELEASE_VERSION --no-git-tag-version
+    - npm install
+    - git add . && git commit -m "[Release] Bump version to ${RELEASE_VERSION}"
+    - git remote set-url --push origin https://Release_token:${RELEASE_TOKEN}@gitlabo.pl-inetum.group/$CI_PROJECT_PATH
+    - git status
+    - git flow release finish -m "New release:$RELEASE_VERSION" $RELEASE_VERSION
+    - git push --follow-tags origin HEAD:$CI_COMMIT_REF_NAME
+    - git checkout master && git push  --follow-tags origin HEAD:master
+  rules:
+    - if: '$ENV_TAG == "test"'
+      when: never
+    - if: $CI_COMMIT_BRANCH == "develop"
+  when: manual
+
+sonarQube:
+  stage: test
+  allow_failure: true
+  image: sonarsource/sonar-scanner-cli:5
+  needs:
+    - lint
+  script:
+    - keytool -noprompt -importcert -alias sonarqube-autopilots.terrapay.com -storepass changeit -keystore $JAVA_HOME/lib/security/cacerts -file /etc/gitlab-runner/certs/ca.crt
+    - export SONAR_SCANNER_OPTS="-Djavax.net.ssl.trustStore=$JAVA_HOME/lib/security/cacerts -Djavax.net.ssl.trustStorePassword=changeit"
+    - sonar-scanner -Dsonar.projectKey=PilotTestingFE -Dsonar.sources=src -Dsonar.host.url=https://sonarqube-autopilots.terrapay.com -Dsonar.token=${SONAR_TOKEN}
+  rules:
+    - if: '$ENV_TAG == "test"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
+    - if: '$CI_COMMIT_TAG'
+
+publish-dev-pr-test-image:
+  stage: deploy
+  image: docker
+  script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD $REGISTRY_URL
+    - docker build -t $IMAGE_NAME:$CI_COMMIT_SHORT_SHA .
+    - docker tag $IMAGE_NAME:$CI_COMMIT_SHORT_SHA $REGISTRY_URL/$IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+    - docker push $REGISTRY_URL/$IMAGE_NAME:$CI_COMMIT_SHORT_SHA
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" || $ENV_TAG == "dev" || $ENV_TAG == "test"'
+
+publish-staging-image:
+  stage: deploy
+  image: docker
+  script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD $REGISTRY_URL
+    - docker build -t $IMAGE_NAME:$CI_COMMIT_BRANCH .
+    - docker tag $IMAGE_NAME:$CI_COMMIT_BRANCH $REGISTRY_URL/$IMAGE_NAME:$CI_COMMIT_BRANCH
+    - docker push $REGISTRY_URL/$IMAGE_NAME:$CI_COMMIT_BRANCH
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop" && $ENV_TAG != "dev" && $ENV_TAG != "test"'
+
+publish-uat-image:
+  stage: build
+  image: docker
+  only:
+    - tags
+  script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASSWORD $REGISTRY_URL
+    - docker build -t $IMAGE_NAME:$TAG .
+    - docker tag $IMAGE_NAME:$TAG $REGISTRY_URL/$IMAGE_NAME:$TAG
+    - docker tag $IMAGE_NAME:$TAG $REGISTRY_URL/$IMAGE_NAME:latest
+    - docker push $REGISTRY_URL/$IMAGE_NAME:$TAG
+    - docker push $REGISTRY_URL/$IMAGE_NAME:latest
+
+trigger-downstream-deploy-pull-request:
+  variables:
+    WEB_TAG: $CI_COMMIT_SHORT_SHA
+    ENV_TAG: pr
+    ENV_NAME: $CI_COMMIT_SHORT_SHA
+    MERGE_REQUEST_PIPELINE: "yes"
+    DOCKER_COMPOSE_FILE: docker-compose-pr.yml
+    MODULE_NAME_IMAGE: $IMAGE_NAME
+  stage: trigger
+  trigger:
+    project: terrapay/Deployment-Environment
+    branch: develop
+    strategy: depend
+  rules:
+    - if: '$CI_COMMIT_TITLE =~ /.*SKIP_CY.*$/'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+
+trigger-downstream-deploy-dev:
+  variables:
+    WEB_TAG: $CI_COMMIT_SHORT_SHA
+    ENV_TAG: $ENV_TAG
+    SERVICE: web
+    DOCKER_COMPOSE_FILE: docker-compose.yml
+  stage: trigger
+  trigger:
+    project: terrapay/Deployment-Environment
+    branch: develop
+    strategy: depend
+  rules:
+    - if: '$ENV_TAG == "dev"'
+
+trigger-downstream-deploy-test:
+  variables:
+    WEB_TAG: $CI_COMMIT_SHORT_SHA
+    ENV_TAG: $ENV_TAG
+    SERVICE: web
+    DOCKER_COMPOSE_FILE: docker-compose.yml
+  stage: trigger
+  trigger:
+    project: terrapay/Deployment-Environment
+    branch: develop
+    strategy: depend
+  rules:
+    - if: '$ENV_TAG == "test"'
+
+trigger-downstream-deploy-staging:
+  variables:
+    WEB_TAG: $CI_COMMIT_BRANCH
+    ENV_TAG: staging
+    SERVICE: web
+    DOCKER_COMPOSE_FILE: docker-compose.yml
+  stage: trigger
+  trigger:
+    project: terrapay/Deployment-Environment
+    branch: develop
+    strategy: depend
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop" && $ENV_TAG != "dev" && $ENV_TAG != "test"'
+
+trigger-downstream-deploy-uat:
+  variables:
+    WEB_TAG: $CI_COMMIT_TAG
+    ENV_TAG: uat
+    SERVICE: web
+    DOCKER_COMPOSE_FILE: docker-compose.yml
+  stage: trigger
+  trigger:
+    project: terrapay/Deployment-Environment
+    branch: develop
+    strategy: depend
+  only:
+     - tags

@@ -1,0 +1,55 @@
+{
+  "ignorePatterns": ["vite.config.ts"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": true,
+    "tsconfigRootDir": "./"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "sonarjs"
+  ],
+  "root": true,
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:compat/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:testing-library/react",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-redundant-type-constituents": "warn",
+    "@typescript-eslint/no-unnecessary-type-assertion": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/prefer-optional-chain": "warn",
+    "@typescript-eslint/prefer-regexp-exec": "warn",
+    "compat/compat": "warn",
+    "default-param-last": "warn",
+    "no-console": "warn",
+    "no-duplicate-imports": "warn",
+    "no-nested-ternary": "warn",
+    "no-trailing-spaces": "error",
+    "react/display-name": "off",
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 3
+      }
+    ],
+    "react/no-array-index-key": "warn",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "semi": "error",
+    "sonarjs/cognitive-complexity": "off",
+    "sonarjs/no-nested-template-literals": "warn"
+  }
+}

@@ -1,0 +1,231 @@
+2. Keys for JSX lists do not need to be globally unique.
+   a) true
+   b) false
+
+3. Unlike other popular front-end libraries like Vue and Angular, React doesn't support direct assignments to mutate state, like:
+   this.state.foo = 42
+   a) true
+   b) false
+
+4. Which date structure best describes the way components in React app are organized?
+   a) list
+   b) graph
+   c) directed acyclic graph
+   d) binary tree 
+   e) tree
+5. In React functional components, binding handlers to this is a typcial step to perform int hte constructor method.
+   a) true
+   b) false
+6. A React  component typcially copies props into state as soon as possible.
+   a) true
+   b) false
+
+7. If you have two child components that share a parent component and one child must re-render in response to an event that triggers in the other child, which technique is the most likely solution to the problem?
+   a) lifting state to the parent
+   b) inheritance
+   c) using a higher-order component
+   d) using a portal
+   e) using context
+
+8. If you'd like to use an existing component as a black box for composing another component's functionality, which technique is the most likely solution to the problem?
+   a) lifting state to the parent
+   b) inheritance
+   c) using a higher-order component
+   d) using a portal
+   e) using context
+
+9. When implementing a feature for a site-wide language or localization preference for a web application, which technique is the most likely solution to the problem?
+   a) lifting state to the parent
+   b) inheritance
+   c) using a higher-order component
+   d) using a portal
+   e) using context
+
+10. In the below code, how many times will the Child component render? Enter the number of times as an integer in the answer field
+const Child = () => <div> I'm the child...</div>;
+
+const Parent = () => {
+    const  [status, setStatus] = useState("clean");
+    
+    const load = async() => {
+        const response = await new Promise(resolve => 
+            setTimeout(resolve, 1000, {data: "dirty"})
+        );
+        setStatus(response.data);
+    }
+
+    useEffect(() => {
+        load();
+    }, []);
+
+    return (
+        <div>
+            <div>{status}</div>
+            <Child />
+        </div>
+    )
+}
+
+ReactDOM.render(<Parent />, document.body);
+
+11. same as 10
+
+12. In the following component, which line of code needs to change in order to ensure that the component is rendered twice? Enter the line number onlye in  the answer field.
+const Example = () => {
+    const [words, setWords] = useState([]);
+
+    const loadWords = async() => {
+        const response = await new Promise(resolve => 
+            setTimeout(resolve, 2000, { data: [
+                "apples", "bananas", "cherries"
+            ]})
+        )
+        setWords(response.data);
+    };
+
+    useEffect(() => {
+        loadWords();
+    }, [words]);
+
+    return (
+        <>
+            {
+                worlds.length ?
+                <ul>
+                    {
+                        words.map((e, i) => 
+                        <li key={i + e}> {e} </li>
+                        )}
+                </ul> : <Spinner />
+            }
+        </>
+    );
+};
+
+13. same as 12
+
+14. ?
+
+15. Error boundaries are components which are used to catch errors thrown only by their immediate children components.
+    a) true
+    b) false
+
+16. Choose the component types(s) that best describe this code.
+const FilePicker = () => {
+    const fileInput = React.createRef();
+
+    const handleSubmit = evt => {
+        evt.preventDefault();
+        console.log(fileInput.current.files[0].name);
+    }
+
+    return (
+        <form onSubmit={handleSubmit}> 
+            <label> 
+                Upload file:
+                <input type="file" ref={fileInput} />
+            </label>
+            <button type="submit"> Submit </button>
+        </form>
+    );
+};
+
+Choose all correct answers below
+a) controlled component
+b) uncontrolled component
+c) higher-order component
+d) pure component
+e) functional component
+f) class component
+g) suspense component
+
+17. If you have a complex animation which requires manipulation of a <canva> element, which React feature is the most likely solution to the problem?
+a) portals
+b) context
+c) refs
+d) higher-order component
+e) fragments
+
+18. Imagine you're writing a component that subscribes to an asynchronous socket feed. Which option below seems most important to remember to do?
+a) apply userReducer to manage socket state
+b) apply useCallbacks to ensure the socket callback doesn't cause unnecessary rerenders
+c) unsubscribe from the feed by returning a cleanup function in useEffect.
+d) memoize the socket unsubscribe function using useMemo
+
+19. When writing custom hooks, there's no need to ensure that state isn't polluted between different functional component that make call to useYourHook().
+a) true
+b) false
+
+20. Imagine you're writing a component that involves a synchronous manipulation on an <input> element. For example, when the user presses Esc, the cursor moves to the beginning of the line.
+
+You apply the cursor manipulation inside a useEffect, but you're noticing a momentary blinking effect due to the useEffect firing after the browser repaint, os the cursor movement isn't truly synchronous.
+Which React hook is the best solution to the problem? Write the name of the hook below.
+
+21. same as 20.
+
+22. Your component has grown too large and contains a useEffect call that supports a requestAnimationFrame loop. Which React feature is the most likely solution to the problem?
+a) writing a custom hook for the RAF loop
+b) memoize the RAF loop
+c) using composition to create a seperate component to handle the RAF loop 
+d) using a generic helper utility file for the RAF loop
+
+23. Consider the following code snippet:
+const Foo = React.lazy(() => import("./Bar"));
+
+which concept does this best illustrates?
+a) code splitting
+b) context
+c) higher-order component
+d) forwarding refs
+e) portals
+
+24. JSX doesn't sanitize text contents by default. If you have contents that could contains data that's from an untrusted source, it's important to escape it manually.
+a) true.
+b) false
+
+25. Sometimes a list of elements you'd like to render doesn't have a suitable unique identifier. In this case, the best practice is for the component to generate random, unique keys for the items on every render.
+a) true
+b) false
+
+26. You can use attributes on nodes in JSX, but they have to be entirely lowercase. 
+a) true
+b) false
+
+27. PureComponent is useful when you have deeply-nested, complex state to avoid updates.
+a) true
+b) false
+
+28. Consider the floowing code: 
+<Foobar autocomplete />
+What's the value of autocomplete ?
+
+29. same as 28.
+
+2. False.
+3. True.
+4. e) tree.
+5. False.
+6. False.
+7. a) lifting state to the parent.
+8. e) using context.
+9. e) using context.
+10. The Child component will render once.
+11. Same as 10.
+12. Line 15 needs to change to useEffect(() => { loadWords(); }, []);.
+13. Same as 12.
+14. I believe there might be a typo in the question. If you have any specific queries, feel free to ask!
+15. True.
+16. Correct answers: b) uncontrolled component, e) functional component.
+17. c) refs.
+18. c) unsubscribe from the feed by returning a cleanup function in useEffect.
+19. False.
+20. useRef.
+21. Same as 20.
+22. a) writing a custom hook for the RAF loop.
+23. a) code splitting.
+24. True.
+25. True.
+26. True.
+27. True.
+28. true.
+29. same as 28.

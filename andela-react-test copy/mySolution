@@ -1,0 +1,114 @@
+import React, { useState, useEffect } from "react";
+
+const BookSearch = (props) => {
+  
+  const books = props.books;
+  const [author, setAuthor] = useState("");
+  const [title, setTitle] = useState("");
+  const [country, setCountry] = useState("");
+  const [language, setLanguage] = useState("");
+  const [year, setYear] = useState("");
+  const [filterData, setFilteredData] = useState([]);
+
+  const Display = ({ book }) => {
+    const { author, title, country, language, year, pages } = book;
+
+    return (
+      <div data-testid="book">
+        <div>
+          <label>Author: </label>
+          <label>{author}</label>
+        </div>
+        <div>
+          <label>Country: </label>
+          <label>{country}</label>
+        </div>
+        <div>
+          <label>Language: </label>
+          <label>{language}</label>
+        </div>
+        <div>
+          <label>Pages: </label>
+          <label>{pages}</label>
+        </div>
+        <div>
+          <label>Title: </label>
+          <label>{title}</label>
+        </div>
+        <div>
+          <label>Year: </label>
+          <label>{year}</label>
+        </div>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+   const filter = books.filter((book) => {
+  const matchesTitle = title ? book.title.toLowerCase().trim().includes(title.toLowerCase().trim()) : true;
+  const matchesAuthor = author ? book.author.toLowerCase().trim().includes(author.toLowerCase().trim()) : true;
+  const matchesCountry = country ? book.country.toLowerCase().trim().includes(country.toLowerCase().trim()) : true;
+  const matchesLanguage = language ? book.language.toLowerCase().trim().includes(language.toLowerCase().trim()) : true;
+  const matchesYear = year ? book.year.toString().trim().includes(year.trim()) : true;
+
+  return matchesTitle && matchesAuthor && matchesCountry && matchesLanguage && matchesYear;
+});
+
+
+
+    setFilteredData(filter);
+  }, [author, title, country, year, language, books]);
+
+  return (
+    <>
+      <div id="input-field">
+        <div>
+          <label>Author: </label>
+          <input
+            data-testid="author"
+            onChange={(e) => setAuthor(e.target.value)}
+            value={author}
+          />
+        </div>
+        <div>
+          <label>Title: </label>
+          <input
+            data-testid="title"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />
+        </div>
+        <div>
+          <label>Country: </label>
+          <input
+            data-testid="country"
+            onChange={(e) => setCountry(e.target.value)}
+            value={country}
+          />
+        </div>
+        <div>
+          <label>Language: </label>
+          <input
+            data-testid="language"
+            onChange={(e) => setLanguage(e.target.value)}
+            value={language}
+          />
+        </div>
+        <div>
+          <label>Year: </label>
+          <input
+            data-testid="year"
+            onChange={(e) => setYear(e.target.value)}
+            value={year}
+          />
+        </div>
+      </div>
+
+      {filterData.length > 0
+        ? filterData.map((book, index) => <Display key={index} book={book} />)
+        : books.map((book, index) => <Display key={index} book={book} />)}
+    </>
+  );
+};
+
+export default BookSearch;
