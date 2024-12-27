@@ -1,0 +1,61 @@
+System Desing components
+1. Architectural pattern
+2. Communication protocol
+3. Availibility
+4. Accessiblity => keyboard Accessiblity, Screen reader, color/contrast
+5. Consistency => different browsers => css, js functions, => css properties, pollyfill
+   Design system => Mui, semantics etc
+6. Crediblity and Trust (SEO)
+    - On page Optimization
+        - optimize the head 
+        - title, description, Meta
+        - content
+        - Performance
+    - Off page Optimization
+        - Backlinking
+        - Ads => social media ads
+7. Logging and Monitoring
+    - Error Logging to find the issue very easily => sentry, datadog
+    - User tracking to know demography and age segment => log rocket
+    - user activity
+    - Features usage => most used features
+    - Infra / Capacity monitoring
+
+8. Database / Caching (client side caching)
+    - http caching (static assets images, js, css)
+    - In memory caching of api data
+    - Apollo caching for gql
+    - State management => local storage => redux, context
+    - Session storage
+    - cookies 
+    - Indexed db
+
+9. Security
+    - DDOS
+    - Authentication and authorization
+    - CSP (content security policy)
+    - CORS
+    - Man in the middle attack
+
+10. Performance and Optimization
+    - Assets Optimization
+    - Delivery options
+    - Build assets => bundle size optimized (not having irrelevent info)
+    - SSR (server side rendering)
+    - Service workers
+    - Web vitals for checking Performance
+    - Perceived Performance => user exp should be better
+
+11. Testing
+    - Unit Testing
+    - Integration testing 
+    - E2E testing
+    
+    Tools for testing
+    - Jest
+    - Mocha
+    - chai
+    - cypress
+    - selenium => e2e testing
+    - Protactor
+    - Playwright => e2e
