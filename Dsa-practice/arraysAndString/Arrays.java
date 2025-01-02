@@ -1,7 +1,9 @@
 package arraysAndString;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class Arrays {
 
@@ -73,7 +75,86 @@ public class Arrays {
         return findTargetSumWaysRec(0, target, 2*target, nums);
     }
 
+    public int countSubarrays(int[] nums) {
+        int n = nums.length;
+        int count = 0;
+        for(int i = 1; i < n-2; i++) {
+            if(nums[i] == 2*(nums[i-1] + nums[i+1])) count++;
+        }    
+
+        return count;
+    }
+
+    int mod = (int)1e9+7;
+    public int countPath(int r, int c, int xor, int[][] grid, int k, int[][][] dp) {
+        if(r == grid.length-1 && c == grid[0].length-1) {
+            if((grid[r][c]^xor) == k) return 1;
+            return 0; 
+        }
+        if(r >= grid.length || c >= grid[0].length) return 0;
+
+        if(dp[r][c][xor] != -1) return dp[r][c];
+
+        int count = 0;
+        count += countPath(r, c+1, xor^grid[r][c], grid, k, dp);
+        count += countPath(r+1, c, xor^grid[r][c], grid, k, dp);
+
+        return dp[r][c][xor] = count%mod;
+    }
+
+    public int countPathTab(int R, int C, int XOR, int[][] grid, int K, int[][][] dp) {
+        
+        for(int r = R; r >= 0; r--) {
+            for(int c = C; c >= 0; c--) {
+                for(int xor = K; xor >= 0; xor--) {
+                    if(r == grid.length-1 && c == grid[0].length-1 && xor == K) {
+                        dp[r][c][grid[r][c]^K] = 1;
+                        continue; 
+                    }
+            
+                    int count = 0;
+                    count += dp[r][c+1][xor^grid[r][c]];
+                    count += dp[r+1][c][xor^grid[r][c]];
+            
+                    dp[r][c][xor] = count%mod;
+                }
+            }
+        }
+
+        return dp[0][0][0];
+    }
+
+    public int countPathsWithXorValue(int[][] grid, int k) {
+        int n = grid.length, m = grid[0].length;
+        int[][][] dp = new int[n+1][m+1][100000];
+        
+        return countPathTab(n-1, m-1, k, grid, 1000, dp);
+    }
+
+    public List<String> AllPossibleStrings(String s)
+    {
+        // Code here
+        int n = s.length();
+        int subSeqCount = Math.pow(2, n)-1;
+        List<String> ans = new ArrayList<>();
+
+        for(int i = 1; i <= subSeqCount; i++) {
+            StringBuilder myAns = new StringBuilder("");
+
+            for(int j = 0; j < n; j++) {
+                if((i & (1 << j)) != 0) {
+                    myAns.append(s.charAt(j));
+                }
+            }
+            ans.add(myAns.toString());
+        }
+
+        Collections.sort(ans);
+        return ans;
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello world");
     }
 }
+
