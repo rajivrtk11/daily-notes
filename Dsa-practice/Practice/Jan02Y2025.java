@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -117,6 +118,92 @@ public class Jan02Y2025 {
 
         memo[i][j][count] = Math.max(maxCount, Math.max(resetCount1, resetCount2));
         return memo[i][j][count];
+    }
+
+    // https://www.naukri.com/code360/problems/shortest-supersequence_4244493?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos&leftPanelTabValue=PROBLEM
+    // problem-5
+    private static String getShortestSuperSequence(int n, int m, String a, String b, String[][] dp) {
+        if(n == 0 || m == 0) {
+          
+            return n == 0 ? b.substring(0, m) : a.substring(0, n);
+        }
+
+        if(dp[n][m] != "") return dp[n][m];
+
+        if(a.charAt(n-1) == b.charAt(m-1)) return dp[n][m] = getShortestSuperSequence(n-1, m-1, a, b, dp) + a.charAt(n-1);
+        else {
+            String takingA = getShortestSuperSequence(n-1, m, a, b, dp) + a.charAt(n-1);
+            String takingB = getShortestSuperSequence(n, m-1, a, b, dp) + b.charAt(m-1);
+
+            return dp[n][m] = takingA.length() < takingB.length() ? takingA : takingB;
+        }
+    }
+
+    private static String getShortestSuperSequenceTab(int N, int M, String a, String b, String[][] dp) {
+    
+        for(int n = 0; n <= N; n++) {
+            for(int m = 0; m <= M; m++) {
+                if(n == 0 || m == 0) {
+                    dp[n][m] = n == 0 ? b.substring(0, m) : a.substring(0, n);
+                    continue;
+                }
+                
+                if(a.charAt(n-1) == b.charAt(m-1)) return dp[n][m] = dp[n-1][m-1] + a.charAt(n-1);
+                else {
+                    String takingA = dp[n-1][m] + a.charAt(n-1);
+                    String takingB = dp[n][m-1] + b.charAt(m-1);
+        
+                    return dp[n][m] = takingA.length() < takingB.length() ? takingA : takingB;
+                }
+            }
+        }
+
+        return dp[N][M];
+    }
+
+    public static String shortestSupersequence(String a, String b) {
+        // Write your code here..
+        int n = a.length();
+        int m = b.length();
+
+        String[][] dp = new String[n+1][m+1];
+        // for(int i = 0; i <= n; i++) Arrays.fill(dp[i], "");
+
+        String ans = getShortestSuperSequenceTab(n, m, a, b, dp);
+        return ans;
+    }
+
+
+    // https://www.naukri.com/code360/problems/subsequence-counting_3755256?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos&leftPanelTabValue=PROBLEM
+    // problem-5
+    static int mod = (int) 1e9+7;
+    public static int distinctSubsequencesRec(int n, int m, String str, String sub, int[][] dp) {
+        if(n < 0 || m < 0) {
+            return m < 0 ? 1 : 0;
+        }
+
+        if(dp[n][m] != -1) return dp[n][m];
+
+        int count = 0;
+        if(str.charAt(n) == sub.charAt(m)) {
+            count += distinctSubsequencesRec(n-1, m-1, str, sub, dp)%mod;
+            count += distinctSubsequencesRec(n-1, m, str, sub, dp)%mod; 
+        }
+        else    
+            count += distinctSubsequencesRec(n-1, m, str, sub, dp)%mod;
+        
+        return dp[n][m] = count%mod;
+    }
+
+    public static int distinctSubsequences(String str, String sub) {
+        // Write your code here.
+        int n = str.length();
+        int m = sub.length();
+
+        int[][] dp = new int[n][m];
+        for(int i = 0; i < n; i++) Arrays.fill(dp[i], -1);
+
+        return distinctSubsequencesRec(n-1, m-1, str, sub, dp);
     }
 
     public static void main(String[] args) {
