@@ -100,6 +100,32 @@ public class Jan02Y2025 {
         return solve(text1, text2, n, m, 0, memo);
     }
 
+    // m-1
+    int findLongestCommonLen(vector<string>& a, vector<string>& b, int n, int m, int& res, vector<vector<int>>& dp, int& resRow, int& resCol){
+        if(n==0 || m==0) return 0;
+        
+        int isSame = 0;
+        if(dp[n][m] != -1) return dp[n][m];
+        
+        if(a[n-1] == b[m-1]){
+            isSame = 1 + findLongestCommonLen(a, b, n-1, m-1, res,dp, resRow, resCol);
+            if(isSame > res){
+                resRow = n;
+                resCol = m;
+                res = isSame;
+            }
+        }
+        else {
+            //Make recursive calls
+            findLongestCommonLen(a, b, n-1, m, res, dp, resRow, resCol);
+            findLongestCommonLen(a, b, n, m-1, res, dp, resRow, resCol);
+        
+            isSame = 0;
+        }
+        return dp[n][m] = isSame;
+    }
+
+    // m-2
     private int solve(String s1, String s2, int i, int j, int count, int[][][] memo) {
         if (i == 0 || j == 0) {
             return count;
@@ -113,6 +139,9 @@ public class Jan02Y2025 {
             maxCount = solve(s1, s2, i - 1, j - 1, count + 1, memo);
         }
         
+        // this should come in else condition and should not return max of count1 and count2
+        // it will give the subsequence not substring
+        // eg. abcpde/aqbpcpde => ans = 2, but giving 3
         int resetCount1 = solve(s1, s2, i - 1, j, 0, memo);
         int resetCount2 = solve(s1, s2, i, j - 1, 0, memo);
 
