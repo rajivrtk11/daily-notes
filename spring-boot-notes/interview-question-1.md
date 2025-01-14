@@ -149,11 +149,13 @@ spring.datasource.url=jdbc:mysql://localhost:3306/mydb
 
 **Answer**:
 The `SpringApplication.run()` method:
-1. **Starts the Spring Application Context**: Initializes the **ApplicationContext**.
-2. **Triggers AutoConfiguration**: Configures beans based on the classpath and `@EnableAutoConfiguration`.
-3. **Starts Embedded Server**: If a web application, starts an embedded server (e.g., Tomcat).
-4. **Registers Listeners**: Registers application listeners and event publishers.
-5. **Scans Components**: Scans for Spring components (`@Component`, `@Service`, etc.) in the specified package.
+1. **Launch**: `SpringApplication.run()`.
+2. **Environment Setup**: Load properties and profiles.
+3. **Bean Registration**: Scan and register components and beans.
+4. **Auto-Configuration**: Configure based on dependencies.
+5. **Server Startup**: Start the embedded server if it's a web app.
+6. **Event Publishing**: Handle lifecycle events.
+7. **Ready**: The application is fully initialized and ready to serve.
 
 ---
 
