@@ -19,7 +19,8 @@ Question 1
 
 4. Interview questions [1]
 Question 1
-- Describe previous work experience/personal project - How does HashMap work 
+- Describe previous work experience/personal project 
+- How does HashMap work 
 - How well do you work under pressure
 
 5. Java Feature, Spring, Hibernates and SQL
@@ -58,5 +59,17 @@ Second Round:
 - Others were related to rest services, which design pattern have you used in project, 
 - filters in web application, authentication and authorization. 
 - Criteria API in hibernate
+
+10. 
+- java 8, 11, 17 features
+- Revise the project that you have worked on and be confident in explaining that.
+- Design a JSON parser.
+- What are functional interfaces? 
+- int vs Integer in Java, 
+- code a banking system class in Java
+
+sql question
+- find the kth salary sql
+- Inner and outer joins in SQL, 
 
 */

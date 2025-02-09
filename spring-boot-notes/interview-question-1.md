@@ -1,7 +1,7 @@
 Here’s an elaborated answer to each of these questions, along with alternative explanations or approaches:
 
 ---
-
+I have exp on - spring boot - 2.7 
 ### **1. Why will you choose Spring Boot over Spring Framework?**
 
 **Answer:**
