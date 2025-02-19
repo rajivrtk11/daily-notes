@@ -38,6 +38,11 @@ order by salary desc
 limit 1
 offset 1
 
+SELECT distinct salary 
+FROM public.employees 
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 2;
+
 -- 3. How to find nth highest salary in using a CTE?
 with cte as (
     select salary,
