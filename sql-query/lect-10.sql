@@ -21,9 +21,22 @@ INSERT INTO sales_data (month, category, amount) VALUES
     ('April', 'Electronics', 1700),
     ('April', 'Clothing', 1400);
 
+-- solution
+-- method-1
+-- Enable tablefunc extension (only needs to be done once)
+CREATE EXTENSION IF NOT EXISTS tablefunc;
+
+SELECT * FROM crosstab(
+    'SELECT month, category, amount FROM sales_data ORDER BY month, category'
+) AS ct (month VARCHAR, clothing NUMERIC, electronics NUMERIC);
+
+-- method-2
 SELECT 
-    product,
-    SUM(CASE WHEN month = 'January' THEN amount ELSE 0 END) AS Jan,
-    SUM(CASE WHEN month = 'February' THEN sales ELSE 0 END) AS Feb
+    month,
+    SUM(amount) FILTER (WHERE category = 'Clothing') AS clothing,
+    SUM(amount) FILTER (WHERE category = 'Electronics') AS electronics,
+	sum(amount) as total
 FROM sales_data
-GROUP BY month, category;
+GROUP BY month
+ORDER BY month;
+
