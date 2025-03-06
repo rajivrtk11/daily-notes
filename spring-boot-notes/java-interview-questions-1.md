@@ -169,11 +169,85 @@ class CustomException extends Exception {
 ---
 
 ### **20. How to use mutable classes and difference between StringBuffer and StringBuilder?**
-- **Mutable Classes**: Use `StringBuilder` or `StringBuffer`.  
-| **Aspect**        | **StringBuffer**                       | **StringBuilder**                   |
-|--------------------|----------------------------------------|--------------------------------------|
-| **Thread Safety**  | Thread-safe (synchronized).           | Not thread-safe.                    |
-| **Performance**    | Slower due to synchronization.        | Faster without synchronization.      |
+### **How to Use Mutable Classes in Java?**  
+A **mutable class** in Java is a class whose objects can be modified after creation. Unlike immutable classes (e.g., `String`), mutable classes allow changing their fields or state.
+
+#### **Example of a Mutable Class**
+```java
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Setter methods allow modifying fields (mutability)
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    // Getter methods
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+}
+
+public class MutableClassExample {
+    public static void main(String[] args) {
+        Person p = new Person("Alice", 25);
+        System.out.println(p.getName()); // Alice
+
+        p.setName("Bob"); // Modifying the existing object
+        System.out.println(p.getName()); // Bob
+    }
+}
+```
+🔹 **Key Features of a Mutable Class:**
+- Provides **setter methods** to change fields.
+- The **state of an object can change** after instantiation.
+
+---
+
+### **Difference Between `StringBuffer` and `StringBuilder`**
+Both `StringBuffer` and `StringBuilder` are **mutable versions** of `String`, allowing modification of string content without creating new objects.
+
+| Feature           | `StringBuffer` | `StringBuilder` |
+|------------------|--------------|----------------|
+| **Thread Safety** | Yes (Synchronized) | No (Not Synchronized) |
+| **Performance**   | Slower due to synchronization | Faster (no synchronization overhead) |
+| **Use Case**     | Multi-threaded environments | Single-threaded applications |
+
+#### **Example Usage**
+```java
+public class StringBufferVsStringBuilder {
+    public static void main(String[] args) {
+        // Using StringBuffer (Thread-Safe)
+        StringBuffer sb1 = new StringBuffer("Hello");
+        sb1.append(" World"); // Modifies existing object
+        System.out.println(sb1); // Hello World
+
+        // Using StringBuilder (Faster, but Not Thread-Safe)
+        StringBuilder sb2 = new StringBuilder("Hello");
+        sb2.append(" Java");
+        System.out.println(sb2); // Hello Java
+    }
+}
+```
+### **When to Use Which?**
+- Use **`StringBuffer`** when **multiple threads** modify the string (e.g., in a multi-threaded environment).
+- Use **`StringBuilder`** when working in a **single-threaded** environment for better performance.
+
+Would you like me to dive deeper into any of these topics? 🚀
 
 ---
 
