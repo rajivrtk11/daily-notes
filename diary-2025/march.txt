@@ -1,0 +1,15 @@
+// 12/March/2025(Wed)
+1. Springboot
+2. Microservices
+6. Authentication => Normal, Jwt, oauth2 => 1hour (11pm)
+3. Testing => write test for the code that i have written
+4. Jenkins => set up the ci/cd
+5. Docker and kubernetes.
+6. Logging and monitoring.
+7. API documentation => Swagger
+
+// 15/March/2025(Sat)
+1. Do the role based authentication for spring boot application using Jwt
+2. 
+
+https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=975508891494.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fleetcode.com%2Faccounts%2Fgoogle%2Flogin%2Fcallback%2F&scope=email&response_type=code&state=sGpluKWPu6vN&service=lso&o2v=1&ddm=1&flowName=GeneralOAuthFlow
