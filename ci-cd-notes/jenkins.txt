@@ -1,0 +1,5 @@
+// Jenkins setup using docker kubernetes
+https://www.youtube.com/watch?v=SO3XIJCtmNs&list=WL&index=1
+
+// Jenkins set up for blue green deployement
+https://www.youtube.com/watch?v=tstBG7RC9as
