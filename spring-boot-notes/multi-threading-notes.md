@@ -690,3 +690,63 @@ public class VirtualThreadExample {
 ---
 
 Would you like to see an example comparing **response time** or **resource usage** for these three in a simulated web server or API handler?
+
+### 33. Virtual thread
+Great comparison! Let's clarify the difference between **`Thread.ofVirtual()`** and **`Thread.startVirtualThread()`** in Java.
+
+---
+
+## 🔹 `Thread.ofVirtual()`
+
+### 🧠 What It Is:
+A **builder** that gives you **flexibility** to configure a virtual thread before starting it.
+
+### ✅ Use When:
+- You want to **name** the thread.
+- You want to **create a factory** (for use with executors).
+- You want to **start the thread manually**.
+
+### 🧪 Example:
+```java
+Thread thread = Thread.ofVirtual()
+                      .name("custom-virtual-", 1)
+                      .unstarted(() -> {
+                          System.out.println("Running: " + Thread.currentThread());
+                      });
+
+thread.start(); // You control when to start it
+```
+
+---
+
+## 🔹 `Thread.startVirtualThread(Runnable)`
+
+### 🧠 What It Is:
+A **convenient, one-liner shortcut** for creating and starting a virtual thread.
+
+### ✅ Use When:
+- You want to **quickly spin up** a virtual thread with **no configuration**.
+- It’s for a **simple task** and you don’t care about naming or managing the thread directly.
+
+### 🧪 Example:
+```java
+Thread.startVirtualThread(() -> {
+    System.out.println("Running: " + Thread.currentThread());
+});
+```
+
+---
+
+## 🔍 Summary Table
+
+| Feature                          | `Thread.ofVirtual()`                             | `Thread.startVirtualThread()`                   |
+|----------------------------------|--------------------------------------------------|-------------------------------------------------|
+| Type                             | Builder                                          | Shortcut method                                |
+| Custom thread name?              | ✅ Yes                                           | ❌ No                                           |
+| Control when to start?           | ✅ (via `.unstarted()` + `.start()`)            | ❌ (starts immediately)                         |
+| Use in factories or frameworks   | ✅ (via `.factory()`)                           | ❌                                              |
+| Ideal for                        | Advanced use, configuration                     | Quick and simple usage                         |
+
+---
+
+Would you like an example where both are used together in an executor scenario?
