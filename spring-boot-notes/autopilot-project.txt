@@ -1,0 +1,50 @@
+Autopilot:
+    1. Discuss the beneficiary registration challenges and solution.
+        1.1 We have dynamic recipient data based on the country. So, we are not sure which input field should be there for what country.
+        1.2 Also we have regulatory guidelines for each and every country.
+        1.3 Eg. Personal detail field, Kyc detail, Address detail and Bank detail 
+        1.4 One of the solution for this was the do the conditional rendering on the ui side for each and every country.
+            But there was challenge associated with this is if some country goes on regulatory changes then will have to do the code
+            level changes. Which is hectic and time consuming.
+        1.5 To avoid that we thought of reading the configurations from database. 
+        1.6 So, We have created the two tables
+            i) Receivemaster param table 
+                The sole purpose of the table was to store all the field and its information eg. display label, description, 
+                editable, regex pattern, 
+            ii) CountryMasterParam table.
+        1.7 We have expose api endpoint which was responsible to return the all the fields which are required or optional 
+            based on the country, instrument type(Bank/Wallet). It was returning the fields section wise.
+        1.8 Now advantage of using this is user will not have to enter the fields which are not required for the given corridor.
+        1.9 Also if some corridor is comming up with new guidelines, No need of having the code level changes.
+        1.10 Once this is done was were storing the info in the db table.
+        1.11 Let me tell you the table structure for this 
+            We have the recipient_kyc table to store kyc relate data 
+            recipient_bank for storing bank information
+            recipient_wallet for storing wallet related information
+            recipient_bank/recipient_wallet is related at manytoone mapping with recipient_kcy table
+        1.12 Once the data is saved then we were doing the project creation.
+    2. Project creation process and challenges and solution.
+        2.1 Project creation is process to schedule the transaction.
+        2.2 Here we enter the transaction related information. Eg which type of transaction we want to test B2B, B2P,
+            P2B, P2P. Source and destination country and various other field.
+        2.3 Here we can create two types of project. Eg. a. One time b. Continuous performance monitoring.
+        2.4 If doing One time only one batch is created.
+        2.5 For Continuous performance monitoring we can do weekly/monthly/quarterly job scheduling
+        2.6 In this cases we have to enter the frequency of the job. How many occurance of this we need. Based on the frequency
+            count no of batch is getting created. 
+    3. Discuss about the quartz job scheduler.
+        3.1 For job scheduling we were using the quartz job scheduler. 
+        3.2 Once the project is created we store the information of job in quartz job table.
+        3.3 Quartz internally keep moniters the job launch that on the schedule time.
+        3.4 When the Project is completed, Success or failed we were removing that from the quartz table.
+    4. Discuss how beneficiary validation and transaction are done dynamically for each corridor.
+        4.1 When the Project is launch we were selecting the beneficiary from the beneficiary table on the random basis
+            for the given corridor.
+        4.2 Since the payload were also required to be generated for validation and transaction.
+        4.3 So we were utilizing the recive_master_country_param info for generating the payload for beneficiary validation
+            and transaction creation dynamically from on the node information stored in recive_master_country_param table.
+        4.4 We were storing the transaction data in transaction table for each project.
+        4.5 We were storing the validation status and transaction status.
+        4.6 Once the transaction Goes into either failed/completed for all transaction in batch. We remove that batch
+            from the quartz job scheduler table.
+            
