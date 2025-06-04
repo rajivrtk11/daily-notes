@@ -1,6 +1,6 @@
 Autopilot:
     1. Discuss the beneficiary registration challenges and solution.
-        1.1 We have dynamic recipient data based on the country. So, we are not sure which input field should be there for what country.
+        1.1 We have dynamic recipient data based on the country. So, we are not sure which all the input fields should be there for specific country.
         1.2 Also we have regulatory guidelines for each and every country.
         1.3 Eg. Personal detail field, Kyc detail, Address detail and Bank detail 
         1.4 One of the solution for this was the do the conditional rendering on the ui side for each and every country.
@@ -47,4 +47,3 @@ Autopilot:
         4.5 We were storing the validation status and transaction status.
         4.6 Once the transaction Goes into either failed/completed for all transaction in batch. We remove that batch
             from the quartz job scheduler table.
-            
