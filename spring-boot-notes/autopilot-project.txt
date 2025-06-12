@@ -47,3 +47,13 @@ Autopilot:
         4.5 We were storing the validation status and transaction status.
         4.6 Once the transaction Goes into either failed/completed for all transaction in batch. We remove that batch
             from the quartz job scheduler table.
+
+
+Digii empowers institutions to streamline operations and enhance learning experiences.
+It Transforming higher education through innovative digital solutions. 
+It provides services for Efficient administration, enhanced learning and enriched campus experience.
+It helps in Admissions and Fee
+Human Resource Management
+Hostel and Mess Automation
+Placement Management
+Ranking & Accreditation.
