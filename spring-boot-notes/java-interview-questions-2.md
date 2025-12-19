@@ -197,3 +197,6 @@ These answers provide detailed insights and alternative solutions where applicab
 
 ### **18. Heap memory optimization
 https://copilot.microsoft.com/conversations/join/gvtvpx8KEo5Dqcqcsv4Jr
+
+### **19. JVM working and its architecture.
+https://www.geeksforgeeks.org/java/how-jvm-works-jvm-architecture/
