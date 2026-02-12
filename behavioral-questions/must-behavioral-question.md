@@ -6,8 +6,8 @@
     -> mvp 
 5. How do you approach learning new skills.
 6. 
-
-
+7. Time based rate explanation
+https://copilot.microsoft.com/conversations/join/prUHTX7tmTB1cGPRSXsSQ
 
 1. Create table 
 2. indexing => btree
