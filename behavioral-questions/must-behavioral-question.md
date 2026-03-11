@@ -9,6 +9,12 @@
 7. Time based rate explanation
 https://copilot.microsoft.com/conversations/join/prUHTX7tmTB1cGPRSXsSQ
 
+8. Deal based rate
+https://copilot.microsoft.com/chats/DvrKQk1C3gU5k2nD2gbVw
+
+9. Important scenario based question
+https://g.co/gemini/share/7a75b2e9cad1
+
 1. Create table 
 2. indexing => btree
 3. w3 school for query
@@ -30,7 +36,7 @@ There are certain scenarios where we need
 5. Tell me about a time when you had collaborated with team members.
 6. Tell me about a time when you had to brainstorm a idea for implementation
 7. How do you handle conflicts with manager
-8. How do you handle conflicts with your peers 
+8. How do you handle conflicts with your peers. 
 9. How did you resolve the production issues.
 
 1. Tell me about your project in current organization
