@@ -1,0 +1,36 @@
+
+App name: (e.g., "Post filter app")
+App type: Select "script" (for personal use) or "web app" (for hosted services).
+Description: (optional) Briefly describe your app.
+About URL: (optional) You can leave this blank.
+Redirect URI: Use http://localhost:8080/callback for testing OAuth.
+Permissions: Choose the appropriate scope.
+
+client_id = ZuQD6l8PX0Fm23j-3hhqhQ
+client_secret = taSVcXUSLW_jnQJjMIclgOmOAlfriA
+
+// doota ai
+1. ask for env variable
+2. google account credential
+3. 
+
+Thank you for the invitation to the in-person interview for the Software Development Engineer position. I’m excited about the opportunity to meet the team and learn more about Amazon’s culture.
+
+Please find my availability below:
+
+[Date 1], [Time range]
+
+[Date 2], [Time range]
+
+[Date 3], [Time range]
+
+[Date 4], [Time range]
+
+[Date 5], [Time range]
+
+I am comfortable with the interviews being scheduled over one or multiple days, whichever works best for the team.
+
+Please let me know if you need any additional information from my side. I look forward to the next steps.
+
+Best regards,
+Rajiv Singh

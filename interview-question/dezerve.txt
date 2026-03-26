@@ -1,0 +1,59 @@
+Given an integer array nums of length n, return an array answer such that:
+
+answer[i] is equal to the product of all the elements of nums except nums[i].
+Constraints:
+You must not use division.
+The solution should run in O(n) time.
+Try to achieve O(1) extra space complexity (excluding the output array).
+
+Example 1:
+Input: nums = [1, 2, 3, 4]
+Output: [24, 12, 8, 6]
+
+m-1:
+do the multiplication for each ith index,
+arr[i] = arr[0 -> i-1] * arr[i+1 to n-1]
+
+time: o(n*n)
+
+m-2:
+ans = [1, 1, 2, 6]
+suffProduct = [24, 12,4, 1]
+o/p = [24, 12, 8, 6]
+
+-------------------------
+A client performs multiple mutual fund purchase transactions during a day.
+Each transaction represents units purchased.
+Find the number of continuous transaction sequences whose total units equal a target value K.
+Example
+Transactions (units purchased):
+[50, 20, 30, 10, 40]
+Target units:
+K = 50
+
+Valid sequences:
+[50], [20,30], [10,40]
+
+Ans = 3
+
+approach-1:
+generate subrrays:
+t: o(n*n*n)
+
+approach-2:
+prefsum[i] = pref[i-1] + arr[i];
+
+approach-3:
+[50, 20, 30, 10, 40]
+1,2,3,4,5
+sum = 50
+
+solution:
+
+
+
+
+
+
+
+

@@ -233,3 +233,6 @@ Would you like me to design the **Database Schema** for the persistent storage (
 
 ## Hld of produclisting and addtoCart
 https://gemini.google.com/share/eb99294d8550
+
+## Cassandra vs mongo db
+https://gemini.google.com/share/93283c7857c4

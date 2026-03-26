@@ -1,0 +1,23 @@
+1. Design a chat system (3 times)
+2. Design a collaborative code editor like Google Docs
+   Design Google Docs with scalable link sharing (hot hits handling)
+3. Design a ride-sharing app like Uber (2 times)
+4. Question related to metrics and distributed tracing (vague)
+5. High-Level Design of BookMyShow (focus on booking, high traffic handling)
+6. Design a URL shortener
+7. Design Google Drive
+   Design an upload service like Google Drive (files + photos)
+8. Design Twitter with some custom requirements
+9. High-Level Design of a Payment Service (focus on scalability, fault tolerance, trade-offs)
+10. Design a chat app with video messaging and video replies(whats app)
+11. Design a system to extrac̉̉̉̉̉̉̉̉t images from video frames and show purchase links for products on Amazon Prime
+12. Design TikTok
+13. Design autocomplete / search recommendations in Amazon Search (given a ranking algorithm)
+14. Design a vehicle service center management system
+15. Design a vehicle tracking system for multiple client use cases (cab booking, food delivery)
+16. Design a news feed like Reddit (with age restriction capability)
+17. Design a system to track and reward Twitch viewers by watch time (top 10 viewers in the past week)
+18. Design a delivery workflow system where the delivery person scans products, updates states, triggers emails, and uses OTP/pictures for delivery confirmation
+19. Design a metrics monitoring and alerting system
+20. Update Mars Rover [https://leetcode.com/discuss/post/5804312/amazon-hld-update-mars-rover-by-nsd14022-svdz/]
+21. Design a tag management system
