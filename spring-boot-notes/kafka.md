@@ -2,6 +2,9 @@
 2. http://interviewbit.com/kafka-interview-questions/
 3. https://www.geeksforgeeks.org/system-design/saga-design-pattern/
 
+// Sql vs Nosql
+https://gemini.google.com/share/065555855a9e
+
 ### 1. Ques: Give me kafka notes considering spring boot implementation
 
 Implementing Kafka in Spring Boot is highly streamlined because of **Spring for Apache Kafka**. It handles the boilerplate (connection management, threading, and serialization) so you can focus on the business logic.
